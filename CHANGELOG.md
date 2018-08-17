@@ -5,3 +5,7 @@
 ## [1.0.1] - (MODIFY) add property.
 
 * add duration property.
+
+## [1.0.2] - (MODIFY) .
+
+* chang size to double.

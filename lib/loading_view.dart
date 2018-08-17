@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class LoadingView extends StatefulWidget {
-  LoadingView(this.size,
+  LoadingView(double size,
       {this.color: Colors.white,
       this.duration: const Duration(milliseconds: 600)})
-      : assert(size != null);
+      : assert(size != null),
+        _size = new Size(size, size);
 
-  final Size size;
+  final Size _size;
   final Color color;
   final Duration duration;
 
@@ -37,7 +38,7 @@ class _LoadingViewState extends State<LoadingView>
     return new CustomPaint(
       painter: new _LoadingViewPainter(
           repaint: _animationController, color: widget.color),
-      size: widget.size,
+      size: widget._size,
     );
   }
 
