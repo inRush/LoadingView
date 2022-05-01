@@ -1,7 +1,6 @@
 name: loading_view
 description: A Flutter Loading View
-version: 1.0.2
-author: inRush <inrush1997@gmail.com>
+version: 1.1.0
 homepage: https://github.com/inRush/LoadingView
 
 dependencies:
@@ -9,7 +8,7 @@ dependencies:
     sdk: flutter
 
 environment:
-  sdk: ">=2.0.0-dev.28.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dev_dependencies:
   flutter_test:

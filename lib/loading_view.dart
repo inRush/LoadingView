@@ -7,8 +7,7 @@ class LoadingView extends StatefulWidget {
   LoadingView(double size,
       {this.color: Colors.white,
       this.duration: const Duration(milliseconds: 600)})
-      : assert(size != null),
-        _size = new Size(size, size);
+      : _size = new Size(size, size);
 
   final Size _size;
   final Color color;
@@ -22,7 +21,7 @@ class LoadingView extends StatefulWidget {
 
 class _LoadingViewState extends State<LoadingView>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
+  late AnimationController _animationController;
 
   @override
   void initState() {
@@ -36,8 +35,7 @@ class _LoadingViewState extends State<LoadingView>
   @override
   Widget build(BuildContext context) {
     return new CustomPaint(
-      painter: new _LoadingViewPainter(
-          repaint: _animationController, color: widget.color),
+      painter: new _LoadingViewPainter(_animationController, color: widget.color),
       size: widget._size,
     );
   }
@@ -50,8 +48,7 @@ class _LoadingViewState extends State<LoadingView>
 }
 
 class _LoadingViewPainter extends CustomPainter {
-  _LoadingViewPainter({
-    @required AnimationController repaint,
+  _LoadingViewPainter(AnimationController repaint,{
     this.color: Colors.white,
   })  : animation = new IntTween(begin: 0, end: _LoadingViewPainter._lineCount)
             .animate(repaint),
@@ -59,10 +56,11 @@ class _LoadingViewPainter extends CustomPainter {
 
   final Animation animation;
   final Color color;
-  Paint _paint;
+  late Paint _paint;
 
   static int _lineCount = 12;
   static double _degreePerLine = (2 * math.pi) / _lineCount;
+
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -70,7 +68,7 @@ class _LoadingViewPainter extends CustomPainter {
 
     double width = min / 12, height = min / 6;
 
-    _paint ??= new Paint()
+    _paint = new Paint()
       ..color = color
       ..strokeWidth = width
       ..strokeCap = StrokeCap.round;

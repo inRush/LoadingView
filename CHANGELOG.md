@@ -9,3 +9,8 @@
 ## [1.0.2] - (MODIFY) .
 
 * chang size to double.
+
+## [1.1.0] - (UPGRADE)
+
+* update flutter sdk
+* compatibility null safety
